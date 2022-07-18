@@ -20,16 +20,16 @@ type Cloth interface {
 }
 
 type Finery struct {
-	b Base
+	base Base
 }
 
 func (f *Finery) Decorate(b Base) {
-	f.b = b
+	f.base = b
 }
 
 func (f Finery) Show() {
-	if f.b != nil {
-		f.b.Show()
+	if f.base != nil {
+		f.base.Show()
 	}
 }
 
@@ -39,7 +39,7 @@ type TShirts struct {
 
 func (t TShirts) Show() {
 	fmt.Println("wear TShirts!!!")
-	t.Finery.Show()
+	t.base.Show()
 }
 
 type BigTrouser struct {
@@ -48,7 +48,7 @@ type BigTrouser struct {
 
 func (b BigTrouser) Show() {
 	fmt.Println("wear big trouser!!!")
-	b.Finery.Show()
+	b.base.Show()
 }
 
 func main() {
