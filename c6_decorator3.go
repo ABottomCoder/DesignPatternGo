@@ -2,56 +2,56 @@ package main
 
 import "fmt"
 
-type Base interface{
+type Base interface {
 	Show()
 }
 
-type Person struct{
+type Person struct {
 	name string
 }
 
-func (p Person)Show(){
+func (p Person) Show() {
 	fmt.Printf("decorated %s", p.name)
 }
 
-type Cloth interface{
+type Cloth interface {
 	Base
 	Decorate()
 }
 
-type Finery struct{
+type Finery struct {
 	base Base
 }
 
-func (f *Finery)Decorate(b Base){
+func (f *Finery) Decorate(b Base) {
 	f.base = b
 }
 
-func (f Finery)Show(){
-	if f.base!=nil{
+func (f Finery) Show() {
+	if f.base != nil {
 		f.base.Show()
 	}
 }
 
-type TShirts struct{
+type TShirts struct {
 	Finery
 }
 
-func (t TShirts)Show(){
+func (t TShirts) Show() {
 	fmt.Println("wear TShirts!!!")
 	t.base.Show()
 }
 
-type BigTrouser struct{
+type BigTrouser struct {
 	Finery
 }
 
-func (b BigTrouser)Show(){
+func (b BigTrouser) Show() {
 	fmt.Println("wear big trouser!!!")
 	b.base.Show()
 }
 
-func main(){
+func main() {
 	xc := Person{name: "Cai"}
 
 	fmt.Println("first collection: ")
@@ -64,7 +64,3 @@ func main(){
 
 	big.Show()
 }
-
-
-
-
